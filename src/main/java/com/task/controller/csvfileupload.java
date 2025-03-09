@@ -28,7 +28,7 @@ public class csvfileupload {
 
 	@GetMapping("/")
     public String index() {
-        return "upload"; // Return the upload form
+        return "upload"; 
     }
 
     @PostMapping("/upload")
@@ -56,7 +56,7 @@ public class csvfileupload {
         return "upload";
     }
 
-    // Process CSV file
+    
     private List<List<String>> processCSV(InputStream inputStream, int startRow) throws IOException {
         List<List<String>> data = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -74,7 +74,7 @@ public class csvfileupload {
         return data;
     }
 
-    // Process Excel file
+    
     private List<List<String>> processExcel(InputStream inputStream, int startRow) throws IOException {
         List<List<String>> data = new ArrayList<>();
         Workbook workbook = WorkbookFactory.create(inputStream);
@@ -94,7 +94,7 @@ public class csvfileupload {
         return data;
     }
 
-    // Get value from Excel cell
+   
     private String getCellValue(Cell cell) {
         switch (cell.getCellType()) {
             case STRING: return cell.getStringCellValue();
